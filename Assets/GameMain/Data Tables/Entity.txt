@@ -1,0 +1,4 @@
+#	Id	Name	Attack	Hp
+#		名字	攻击	血量
+	1	John	10	100
+	2	David	8	120
