@@ -16,14 +16,14 @@ public class ProcedureLaunch : ProcedureBase
     {
         base.OnInit(procedureOwner);
 
-        Log.Debug("Á÷³Ì¿ªÊ¼");
+        Log.Debug("æµç¨‹å¼€å§‹");
     }
 
     protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
     {
         base.OnEnter(procedureOwner);
 
-        //GameEntry.UI.OpenUIForm("Assets/GameMain/UI/UITestForm.prefab", "Normal",this);
+        GameEntry.UI.OpenUIForm("Assets/GameMain/UI/UITestForm.prefab", "Normal",this);
 
         GameEntry.Event.Subscribe(LoadDataTableSuccessEventArgs.EventId,OnLoadDataTableSucc);
 
@@ -39,7 +39,7 @@ public class ProcedureLaunch : ProcedureBase
 
         if (ne.UserData == this)
         {
-            //¼ÓÔØÍê³É
+            //åŠ è½½å®Œæˆ
 
             IDataTable<DREntity> dt = GameEntry.DataTable.GetDataTable<DREntity>();
 
