@@ -23,7 +23,7 @@ public class ProcedureLaunch : ProcedureBase
     {
         base.OnEnter(procedureOwner);
 
-        GameEntry.UI.OpenUIForm("Assets/GameMain/UI/UITestForm.prefab", "Normal",this);
+        GameEntry.UI.OpenUIForm("Assets/GameMain/Entiries/UI/UITestForm.prefab", "Normal",this);
 
         GameEntry.Event.Subscribe(LoadDataTableSuccessEventArgs.EventId,OnLoadDataTableSucc);
 
