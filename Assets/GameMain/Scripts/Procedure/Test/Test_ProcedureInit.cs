@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-public class ProcedureInit : ProcedureBase
+public class Test_ProcedureInit : ProcedureBase
 {
     protected override void OnInit(IFsm<IProcedureManager> procedureOwner)
     {
