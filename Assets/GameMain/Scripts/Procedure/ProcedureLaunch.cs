@@ -23,13 +23,13 @@ public class ProcedureLaunch : ProcedureBase
     {
         base.OnEnter(procedureOwner);
 
-        GameEntry.UI.OpenUIForm("Assets/GameMain/Entiries/UI/UITestForm.prefab", "Normal",this);
+        GameEntry.UI.OpenUIForm("Assets/GameMain/UI/UITestForm.prefab", "Normal",this);
 
         GameEntry.Event.Subscribe(LoadDataTableSuccessEventArgs.EventId,OnLoadDataTableSucc);
 
         DataTableBase dataTableBase = (DataTableBase) GameEntry.DataTable.CreateDataTable<DREntity>();
 
-        dataTableBase.ReadData("Assets/GameMain/Data Tables/Entity.txt", this);
+        dataTableBase.ReadData("Assets/GameMain/DataTables/Entity.txt", this);
 
     }
 

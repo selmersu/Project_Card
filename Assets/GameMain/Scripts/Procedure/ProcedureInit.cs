@@ -22,7 +22,7 @@ public class ProcedureInit : ProcedureBase
 
         GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySucc);
 
-        GameEntry.Entity.ShowEntity<SquareEntityLogic>(1, "Assets/GameMain/Prefabs/Square.prefab", "Prefabs");
+        GameEntry.Entity.ShowEntity<SquareEntityLogic>(1, "Assets/GameMain/Entities/Prefabs/Square.prefab", "Prefabs");
     }
 
     protected override void OnDestroy(IFsm<IProcedureManager> procedureOwner)
