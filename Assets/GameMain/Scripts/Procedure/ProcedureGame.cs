@@ -11,5 +11,10 @@ public class ProcedureGame : ProcedureBase
     {
         base.OnEnter(procedureOwner);
         Log.Debug("进入游戏流程");
+
+        EntityComponent entityComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<EntityComponent>();
+
+        entityComponent.ShowEntity<SquareEntityLogic>(1, "Assets/GameMain/Entities/Prefabs/Square.prefab", "Prefabs");
+
     }
 }

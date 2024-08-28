@@ -1,0 +1,6 @@
+#	Id	Name	Hp	Atk	Defense	Threat	Crit_Rate
+#		名字	生命值	基础攻击力	防御力	嘲讽值	暴击率
+#	int	string	int	int	int	int	int
+	1	player1	28	-2	4	50	5
+	2	player2	20	2	2	30	10
+	3	player3	16	-2	2	20	5

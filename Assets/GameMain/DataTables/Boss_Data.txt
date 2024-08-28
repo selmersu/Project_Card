@@ -1,0 +1,4 @@
+#	Id	Name	Hp	Atk	Defense	Crit_Rate
+#		名字	生命值	基础攻击力	防御力	暴击率
+#	int	string	int	int	int	int
+	1	Boss1	100	2	2	5

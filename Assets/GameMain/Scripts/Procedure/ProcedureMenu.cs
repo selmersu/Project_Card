@@ -10,6 +10,7 @@ using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedure
 
 public class ProcedureMenu : ProcedureBase
 {
+    private bool m_IsChangeProcedure = false;
 
     protected override void OnEnter(ProcedureOwner procedureOwner)
     {
@@ -22,7 +23,40 @@ public class ProcedureMenu : ProcedureBase
 
         Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnopenUIFormSuccess);
 
-        UI.OpenUIForm("Assets/GameMain/UI/UI_Menu.prefab", "Normal",this);    //加载UI
+        UI.OpenUIForm("Assets/GameMain/UI/UI_Menu.prefab", "Normal",this);    //加载UI_Menu
+    }
+
+
+    protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
+    {
+        base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
+
+        if (m_IsChangeProcedure)
+        {
+            // 获取框架场景组件
+            SceneComponent Scene = UnityGameFramework.Runtime.GameEntry.GetComponent<SceneComponent>();
+
+            // 卸载所有场景
+            string[] loadedSceneAssetNames = Scene.GetLoadedSceneAssetNames();
+            for (int i = 0; i < loadedSceneAssetNames.Length; i++)
+            {
+                Scene.UnloadScene(loadedSceneAssetNames[i]);
+            }
+            // 加载游戏场景
+            Scene.LoadScene("Assets/GameMain/Scenes/Game.unity", this);
+
+            ChangeState<ProcedureGame>(procedureOwner); //切换Game流程
+        }
+    }
+
+
+    protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
+    {
+        base.OnLeave(procedureOwner, isShutdown);
+
+        GameEntry.Event.Unsubscribe(OpenUIFormSuccessEventArgs.EventId, OnopenUIFormSuccess);
+
+        GameEntry.UI.CloseAllLoadedUIForms();   //关闭所有UI
     }
 
     private void OnopenUIFormSuccess(object sender, GameEventArgs e)
@@ -33,6 +67,10 @@ public class ProcedureMenu : ProcedureBase
         {
             return;
         }
-        Log.Debug("UI_Menu回调成功");
+    }
+
+    public void ChangeProcedure()
+    {
+        m_IsChangeProcedure = true;
     }
 }

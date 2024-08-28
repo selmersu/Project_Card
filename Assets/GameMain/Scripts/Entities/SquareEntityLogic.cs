@@ -13,4 +13,5 @@ public class SquareEntityLogic : EntityLogic
 
         transform.Rotate(m_Rot);
     }
+    
 }
