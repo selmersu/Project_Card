@@ -43,9 +43,9 @@ public class ProcedureMenu : ProcedureBase
                 Scene.UnloadScene(loadedSceneAssetNames[i]);
             }
             // 加载游戏场景
-            Scene.LoadScene("Assets/GameMain/Scenes/Game.unity", this);
+            Scene.LoadScene("Assets/GameMain/Scenes/Main.unity", this);
 
-            ChangeState<ProcedureGame>(procedureOwner); //切换Game流程
+            ChangeState<ProcedureMain>(procedureOwner); //切换Main流程
         }
     }
 
